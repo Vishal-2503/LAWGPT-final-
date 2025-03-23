@@ -11,3 +11,5 @@ langchain
 langchain_community
 faiss-cpu
 together
+langchain_together
+
