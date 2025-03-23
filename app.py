@@ -51,7 +51,9 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "memory" not in st.session_state:
-    st.session_state.memory = ConversationBufferWindowMemory(k=2, memory_key="chat_history",return_messages=True) 
+   from langchain.memory import ConversationBufferMemory
+st.session_state.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
 
 embeddings = HuggingFaceEmbeddings(model_name="nomic-ai/nomic-embed-text-v1",model_kwargs={"trust_remote_code":True,"revision":"289f532e14dbbbd5a04753fa58739e9ba766f3c7"})
 db = FAISS.load_local("ipc_vector_db", embeddings, allow_dangerous_deserialization=True)
