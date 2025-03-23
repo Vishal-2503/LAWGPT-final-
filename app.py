@@ -3,7 +3,8 @@ os.environ["TOGETHER_API_KEY"] = "1e5ec67d8fe48d93e8e631a42dc763166f1b897da472b1
 
 from langchain_community.vectorstores import FAISS
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
 from langchain.prompts import PromptTemplate
 from langchain_together import Together
 import os
