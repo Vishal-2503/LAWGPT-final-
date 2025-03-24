@@ -62,7 +62,8 @@ embeddings = HuggingFaceEmbeddings(
 )
 
 try:
-    db = FAISS.load_local("ipc_vector_db", embeddings)
+    db = FAISS.load_local("ipc_vector_db", embeddings, allow_dangerous_deserialization=True)
+
     db_retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 except Exception as e:
     st.error(f"Error loading FAISS index: {e}")
